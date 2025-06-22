@@ -7,9 +7,9 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #232527;
     min-height: 100vh;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Login Screen */
@@ -22,13 +22,14 @@ body {
 }
 
 .login-container {
-    background: white;
+    background: #2d2f31;
     padding: 3rem;
     border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     text-align: center;
     max-width: 400px;
     width: 90%;
+    border: 1px solid #3a3d40;
 }
 
 .logo h1 {
@@ -40,18 +41,20 @@ body {
 
 .login-form h2 {
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #ffffff;
     font-weight: 600;
 }
 
 #usernameInput {
     width: 100%;
     padding: 12px 16px;
-    border: 2px solid #e1e5e9;
+    border: 2px solid #3a3d40;
     border-radius: 8px;
     font-size: 16px;
     margin-bottom: 1.5rem;
     transition: border-color 0.3s ease;
+    background: #1e2022;
+    color: #ffffff;
 }
 
 #usernameInput:focus {
@@ -79,13 +82,13 @@ body {
 /* Game Interface */
 .game-interface {
     min-height: 100vh;
-    background: #f8f9fa;
+    background: #232527;
 }
 
 /* Header */
 .header {
-    background: white;
-    border-bottom: 1px solid #e1e5e9;
+    background: #2d2f31;
+    border-bottom: 1px solid #3a3d40;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -118,7 +121,7 @@ body {
     padding: 12px 20px;
     font-size: 14px;
     font-weight: 500;
-    color: #666;
+    color: #b0b0b0;
     cursor: pointer;
     transition: all 0.3s ease;
     border-bottom: 3px solid transparent;
@@ -126,7 +129,7 @@ body {
 
 .tab-btn:hover {
     color: #00a2ff;
-    background: #f8f9fa;
+    background: #1e2022;
 }
 
 .tab-btn.active {
@@ -179,16 +182,17 @@ body {
 }
 
 .marketplace-header h2 {
-    color: #333;
+    color: #ffffff;
     font-size: 1.8rem;
     font-weight: 600;
 }
 
 .marketplace-stats {
-    background: white;
+    background: #2d2f31;
     padding: 8px 16px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid #3a3d40;
 }
 
 .items-grid {
@@ -198,37 +202,55 @@ body {
 }
 
 .item-card {
-    background: white;
+    background: #2d2f31;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    border: 1px solid #3a3d40;
 }
 
 .item-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: #00a2ff;
 }
 
 .item-image {
     width: 100%;
     height: 150px;
-    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+    background: #1e2022;
     border-radius: 8px;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-fallback {
+    display: none;
     font-size: 48px;
-    color: #999;
+    color: #666;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .item-name {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 8px;
-    color: #333;
+    color: #ffffff;
 }
 
 .item-price {
@@ -240,13 +262,13 @@ body {
 
 .item-stock {
     font-size: 14px;
-    color: #666;
+    color: #b0b0b0;
     margin-bottom: 12px;
 }
 
 .item-value, .item-rap {
     font-size: 14px;
-    color: #666;
+    color: #b0b0b0;
     margin-bottom: 4px;
 }
 
@@ -267,13 +289,13 @@ body {
 }
 
 .buy-btn:disabled {
-    background: #ccc;
+    background: #666;
     cursor: not-allowed;
 }
 
 /* Profile */
 .profile-header h2 {
-    color: #333;
+    color: #ffffff;
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 2rem;
@@ -287,16 +309,17 @@ body {
 }
 
 .stat-card {
-    background: white;
+    background: #2d2f31;
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     text-align: center;
+    border: 1px solid #3a3d40;
 }
 
 .stat-card h3 {
     font-size: 14px;
-    color: #666;
+    color: #b0b0b0;
     margin-bottom: 8px;
     font-weight: 500;
 }
@@ -308,7 +331,7 @@ body {
 }
 
 .inventory h3 {
-    color: #333;
+    color: #ffffff;
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -329,17 +352,18 @@ body {
 }
 
 .trades-header h2 {
-    color: #333;
+    color: #ffffff;
     font-size: 1.8rem;
     font-weight: 600;
 }
 
 #tradeFilter {
     padding: 8px 12px;
-    border: 2px solid #e1e5e9;
+    border: 2px solid #3a3d40;
     border-radius: 6px;
     font-size: 14px;
-    background: white;
+    background: #1e2022;
+    color: #ffffff;
 }
 
 .trades-list {
@@ -349,16 +373,18 @@ body {
 }
 
 .trade-item {
-    background: white;
+    background: #2d2f31;
     padding: 16px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: transform 0.2s ease;
+    border: 1px solid #3a3d40;
 }
 
 .trade-item:hover {
     transform: translateY(-2px);
+    border-color: #00a2ff;
 }
 
 .trade-header {
@@ -381,28 +407,28 @@ body {
 }
 
 .trade-status.inbound {
-    background: #e3f2fd;
-    color: #1976d2;
+    background: #1e3a8a;
+    color: #60a5fa;
 }
 
 .trade-status.outbound {
-    background: #fff3e0;
-    color: #f57c00;
+    background: #92400e;
+    color: #fbbf24;
 }
 
 .trade-status.inactive {
-    background: #ffebee;
-    color: #d32f2f;
+    background: #991b1b;
+    color: #f87171;
 }
 
 .trade-status.completed {
-    background: #e8f5e8;
-    color: #388e3c;
+    background: #065f46;
+    color: #34d399;
 }
 
 .trade-summary {
     font-size: 14px;
-    color: #666;
+    color: #b0b0b0;
 }
 
 /* Leaderboards */
@@ -414,7 +440,7 @@ body {
 }
 
 .leaderboards-header h2 {
-    color: #333;
+    color: #ffffff;
     font-size: 1.8rem;
     font-weight: 600;
 }
@@ -430,7 +456,7 @@ body {
     padding: 8px 16px;
     font-size: 14px;
     font-weight: 500;
-    color: #666;
+    color: #b0b0b0;
     cursor: pointer;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
@@ -454,29 +480,30 @@ body {
 }
 
 .leaderboard h3 {
-    color: #333;
+    color: #ffffff;
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
 .leaderboard-list {
-    background: white;
+    background: #2d2f31;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    border: 1px solid #3a3d40;
 }
 
 .leaderboard-entry {
     display: flex;
     align-items: center;
     padding: 16px 20px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #3a3d40;
     transition: background-color 0.2s ease;
 }
 
 .leaderboard-entry:hover {
-    background: #f8f9fa;
+    background: #1e2022;
 }
 
 .leaderboard-entry:last-child {
@@ -486,7 +513,7 @@ body {
 .rank {
     font-size: 18px;
     font-weight: 700;
-    color: #666;
+    color: #b0b0b0;
     min-width: 40px;
 }
 
@@ -505,7 +532,7 @@ body {
 .player-name {
     flex: 1;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
     margin-left: 12px;
 }
 
@@ -521,7 +548,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -529,12 +556,13 @@ body {
 }
 
 .modal-content {
-    background: white;
+    background: #2d2f31;
     border-radius: 12px;
     max-width: 600px;
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
+    border: 1px solid #3a3d40;
 }
 
 .modal-header {
@@ -542,11 +570,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid #e1e5e9;
+    border-bottom: 1px solid #3a3d40;
 }
 
 .modal-header h3 {
-    color: #333;
+    color: #ffffff;
     font-weight: 600;
 }
 
@@ -555,7 +583,7 @@ body {
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #666;
+    color: #b0b0b0;
     padding: 0;
     width: 30px;
     height: 30px;
@@ -565,11 +593,126 @@ body {
 }
 
 .close-btn:hover {
-    color: #333;
+    color: #ffffff;
 }
 
 .modal-body {
     padding: 20px;
+}
+
+/* Item Modal */
+.item-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.item-image-large {
+    width: 200px;
+    height: 200px;
+    background: #1e2022;
+    border-radius: 12px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.item-image-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-fallback-large {
+    display: none;
+    font-size: 64px;
+    color: #666;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.item-details h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.item-details p {
+    color: #b0b0b0;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.item-details strong {
+    color: #ffffff;
+}
+
+.item-details h4 {
+    color: #00a2ff;
+    margin: 20px 0 10px 0;
+    text-align: left;
+}
+
+.item-details ul {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.item-details li {
+    color: #b0b0b0;
+    margin-bottom: 5px;
+}
+
+.item-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-resell, .btn-purchase, .btn-close {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-resell {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-resell:hover {
+    background: #c82333;
+}
+
+.btn-purchase {
+    background: #00a2ff;
+    color: white;
+}
+
+.btn-purchase:hover {
+    background: #0088cc;
+}
+
+.btn-purchase:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.btn-close {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-close:hover {
+    background: #5a6268;
 }
 
 /* Trade Modal */
@@ -581,20 +724,22 @@ body {
 }
 
 .trade-side {
-    background: #f8f9fa;
+    background: #1e2022;
     padding: 16px;
     border-radius: 8px;
+    border: 1px solid #3a3d40;
 }
 
 .trade-side h4 {
     margin-bottom: 12px;
-    color: #333;
+    color: #ffffff;
     font-weight: 600;
 }
 
 .trade-items {
     min-height: 100px;
     margin-bottom: 12px;
+    color: #b0b0b0;
 }
 
 .trade-value {
@@ -606,7 +751,7 @@ body {
     display: flex;
     align-items: center;
     font-size: 24px;
-    color: #666;
+    color: #b0b0b0;
 }
 
 .trade-actions {
@@ -652,36 +797,19 @@ body {
 }
 
 /* Purchase Modal */
-.item-details {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .purchase-actions {
     display: flex;
     gap: 12px;
     justify-content: center;
 }
 
-.btn-purchase, .btn-cancel {
+.btn-cancel {
     padding: 10px 20px;
     border: none;
     border-radius: 6px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.btn-purchase {
-    background: #00a2ff;
-    color: white;
-}
-
-.btn-purchase:hover {
-    background: #0088cc;
-}
-
-.btn-cancel {
     background: #6c757d;
     color: white;
 }
@@ -730,6 +858,10 @@ body {
     }
     
     .purchase-actions {
+        flex-direction: column;
+    }
+    
+    .item-actions {
         flex-direction: column;
     }
 } 

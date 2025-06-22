@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Trading Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="logo">
+                <h1>Roblox Trading Simulator</h1>
+            </div>
+            <div class="login-form">
+                <h2>Choose Your Username</h2>
+                <input type="text" id="usernameInput" placeholder="Username (3-26 characters)" maxlength="26" minlength="3">
+                <button id="startGameBtn">Start Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Game Interface -->
+    <div id="gameInterface" class="game-interface" style="display: none;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-small">
+                    <h2>Roblox Trading Simulator</h2>
+                </div>
+                <nav class="nav-tabs">
+                    <button class="tab-btn active" data-tab="marketplace">Marketplace</button>
+                    <button class="tab-btn" data-tab="profile">Profile</button>
+                    <button class="tab-btn" data-tab="trades">Trades</button>
+                    <button class="tab-btn" data-tab="leaderboards">Leaderboards</button>
+                </nav>
+                <div class="user-info">
+                    <span id="userDisplayName"></span>
+                    <span id="userBalance"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Marketplace Tab -->
+            <div id="marketplace" class="tab-content active">
+                <div class="marketplace-header">
+                    <h2>Marketplace</h2>
+                    <div class="marketplace-stats">
+                        <span>Next Release: <span id="nextReleaseTimer">30s</span></span>
+                    </div>
+                </div>
+                <div class="items-grid" id="itemsGrid">
+                    <!-- Items will be populated here -->
+                </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="profile" class="tab-content">
+                <div class="profile-header">
+                    <h2>Profile</h2>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <h3>Current Value</h3>
+                            <span id="currentValue">$0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h3>RAP</h3>
+                            <span id="currentRAP">$0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Items Owned</h3>
+                            <span id="itemsOwned">0</span>
+                        </div>
+                    </div>
+                    <div class="inventory">
+                        <h3>Inventory</h3>
+                        <div class="inventory-grid" id="inventoryGrid">
+                            <!-- Player's items will be shown here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trades Tab -->
+            <div id="trades" class="tab-content">
+                <div class="trades-header">
+                    <h2>Trades</h2>
+                    <select id="tradeFilter">
+                        <option value="inbound">Inbound</option>
+                        <option value="outbound">Outbound</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                <div class="trades-list" id="tradesList">
+                    <!-- Trades will be populated here -->
+                </div>
+            </div>
+
+            <!-- Leaderboards Tab -->
+            <div id="leaderboards" class="tab-content">
+                <div class="leaderboards-header">
+                    <h2>Leaderboards</h2>
+                    <div class="leaderboard-tabs">
+                        <button class="leaderboard-tab active" data-leaderboard="value">Top Value</button>
+                        <button class="leaderboard-tab" data-leaderboard="rap">Top RAP</button>
+                    </div>
+                </div>
+                <div class="leaderboards-content">
+                    <div id="valueLeaderboard" class="leaderboard active">
+                        <h3>Top 50 by Value</h3>
+                        <div class="leaderboard-list" id="valueLeaderboardList">
+                            <!-- Value leaderboard will be populated here -->
+                        </div>
+                    </div>
+                    <div id="rapLeaderboard" class="leaderboard">
+                        <h3>Top 50 by RAP</h3>
+                        <div class="leaderboard-list" id="rapLeaderboardList">
+                            <!-- RAP leaderboard will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Trade Modal -->
+    <div id="tradeModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Trade with <span id="tradePartnerName"></span></h3>
+                <button class="close-btn" id="closeTradeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="trade-sides">
+                    <div class="trade-side">
+                        <h4>You're Offering</h4>
+                        <div class="trade-items" id="yourTradeItems">
+                            <!-- Your items will be shown here -->
+                        </div>
+                        <div class="trade-value">
+                            <span>Value: $<span id="yourTradeValue">0</span></span>
+                        </div>
+                    </div>
+                    <div class="trade-arrows">⇄</div>
+                    <div class="trade-side">
+                        <h4>They're Offering</h4>
+                        <div class="trade-items" id="theirTradeItems">
+                            <!-- Their items will be shown here -->
+                        </div>
+                        <div class="trade-value">
+                            <span>Value: $<span id="theirTradeValue">0</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trade-actions">
+                    <button id="acceptTrade" class="btn-accept">Accept</button>
+                    <button id="declineTrade" class="btn-decline">Decline</button>
+                    <button id="counterTrade" class="btn-counter">Counter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item Purchase Modal -->
+    <div id="purchaseModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Purchase Item</h3>
+                <button class="close-btn" id="closePurchaseModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="item-details" id="purchaseItemDetails">
+                    <!-- Item details will be shown here -->
+                </div>
+                <div class="purchase-actions">
+                    <button id="confirmPurchase" class="btn-purchase">Purchase</button>
+                    <button id="cancelPurchase" class="btn-cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
